@@ -4,6 +4,9 @@
  * which represents an array of user objects like the one shown in data.js. This function 
  * should use the native filter method to return a new array of only the user objects that 
  * have a yearly subscription.
+ * 
+ * I:
+ * O: array of users with yearly subs
  */
 
 function getYearlySubscribers(array){
@@ -20,14 +23,18 @@ function getYearlySubscribers(array){
  * which represents an array of user objects like the one shown in data.js. This 
  * function should use the native filter method to return a new array of only the 
  * user objects whose watched array includes a movie they have seen in theaters.
+ * 
+ * I: array
+ * O: array of user objects if watched array includes a theater film
 */
 
 function getTheaterGoers(array){
-    return array.filter(user => user.watched.forEach(film => {
-        if(film.platform === 'Theater'){
-            return true
+    return array.filter(user => {
+        for(let i = 0; i < user.watched.length; i++){
+        if(user.watched[i].platform === 'Theater'){
+            return true;
         }
-    }))
+    }})
 }
 
 // Problem #3 // 
@@ -38,11 +45,15 @@ function getTheaterGoers(array){
  strings that includes the user's name followed by their subscription type 
  and cost. Use the example below to format your strings. Note how 'yearly' 
  and 'monthly' in the strings below are lowercase.
+
+I:
+O: arr of template literals
+
  */
 
 function mapUsers(array){
     return array.map(user => {
-        return `${user.name} has a ${user.subscription.type.toLowerCase()} that costs ${user.subscription.cost}`})
+        return `${user.name} has a ${user.subscription.type.toLowerCase()} subscription that costs ${user.subscription.cost}.`})
 
 }
 
@@ -58,9 +69,9 @@ function getObjects(array){
     return array.map(user => {
         return {
             user: user.name,
-            location: user.location.city,
+            location: `${user.location.city}, ${user.location.state}`,
             watchedFilms: user.watched.length,
-            filmsInQueue: user.queue
+            filmsInQueue: user.queue.length
         }
     })
 }
@@ -79,12 +90,12 @@ function getInfoByCity(array, city, output = []){
     if(array.length === 0){
         return output;
     }
-    //recursion
-    if(array[0].location.city && array[0].email){
+    //check if user's city matches the input city
+    if(array[0].location.city === city && array[0].email){
         output.push(`${array[0].name} - ${array[0].email}`);
-        return output
     }
-    getInfoByCity(array.slice(1))
+    //recursive call with the remaining array using slice
+    return getInfoByCity(array.slice(1), city, output)
 }
 
 // Problem #6 //
@@ -100,9 +111,15 @@ function getInfoByCity(array, city, output = []){
  * type marked "Montly", you will need to calculate what their monthly cost 
  * will add up over 12 months.
  */
-function getYearlyCost(array, output = []){
-    return array.reduce((acc, current) => {
-acc += current
-    }, 0)
+function getYearlyCost(array){
+    return array.reduce((acc, user) => {
+        if(user.subscription.type === 'Yearly'){
+            acc[user.name] = user.subscription.cost;
+        }else {
+            acc[user.name] = user.subscription.cost * 12
+        }
+return acc
+    }, {})
+   
 }
 
