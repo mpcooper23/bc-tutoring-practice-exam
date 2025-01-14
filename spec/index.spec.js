@@ -58,7 +58,7 @@ describe("Practice Exam", () => {
             const result = mapUsers(users);
             assert.equal(Array.isArray(result), true);
         });
-        it('should return a correct array of objects', () => {
+        it('should return a correct array of strings', () => {
             const result = mapUsers(users);
             const correct = [
                 'Alex Aaron has a yearly subscription that costs 120.99.', 
@@ -135,7 +135,7 @@ describe("Practice Exam", () => {
             assert.equal(Array.isArray(result), false);
             assert.equal(result !== null, true);
         });
-        it('should return a correct array of objects', () => {
+        it('should return a correct object', () => {
             const result = getYearlyCost(users);
             const correct = {
                 "Alex Aaron": 120.99,
@@ -144,7 +144,7 @@ describe("Practice Exam", () => {
             };
             assert.deepEqual(result, correct);
         });
-        it('should use the native map method', () => {
+        it('should use the native reduce method', () => {
             const result = getYearlyCost(users);
             Array.prototype.reduce.called.should.be.true;
         });
