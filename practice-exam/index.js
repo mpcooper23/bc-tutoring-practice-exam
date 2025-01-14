@@ -20,14 +20,19 @@ function getYearlySubscribers(array){
  * which represents an array of user objects like the one shown in data.js. This 
  * function should use the native filter method to return a new array of only the 
  * user objects whose watched array includes a movie they have seen in theaters.
+*/
 
-function getTheaterGoers(){
-    
+function getTheaterGoers(array){
+    return array.filter(user => user.watched.forEach(film => {
+        if(film.platform === 'Theater'){
+            return true
+        }
+    }))
 }
 
 // Problem #3 // 
 /**
- *CCreate a function called mapUsers that takes in one parameter - array - 
+ *Create a function called mapUsers that takes in one parameter - array - 
  which represents an array of user objects like the one shown in data.js. 
  This function should use the native map method to return a new array of 
  strings that includes the user's name followed by their subscription type 
@@ -35,7 +40,8 @@ function getTheaterGoers(){
  and 'monthly' in the strings below are lowercase.
  */
 
-function mapUsers(){
+function mapUsers(array){
+    return array.map(user => `${user.name} has a ${user.subscription.type} that costs ${user.subscription.cost}`)
     
 }
 
