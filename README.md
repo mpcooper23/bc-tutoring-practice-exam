@@ -1,1 +1,2 @@
 # bc-tutoring-practice-exam
+1. Create a function called `getYearlySubscribers` that takes in one parameter - `array` - which represents an array of user objects like the one shown in data.js. This function should use the native filter method to return a new array of only the user objects that have a yearly subscription.
