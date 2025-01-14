@@ -4,7 +4,7 @@ const users = [
       email: 'alexfrancisaaron@gmail.com',
       subscription: {
         type: 'Yearly',
-        cost: '120.99'
+        cost: 120.99,
       },
       location: {
         city: 'New Orleans',
@@ -57,7 +57,7 @@ const users = [
       email: 'blogan@gmail.com',
       subscription: {
         type: 'Monthly',
-        cost: '12.99',
+        cost: 12.99,
       },
       location: {
         city: 'New Orleans',
@@ -104,7 +104,7 @@ const users = [
       email: 'sray@la.gov',
       subscription: {
         type: 'Yearly',
-        cost: '120.99',
+        cost: 120.99,
       },
       location: {
         city: 'Baton Rouge',

@@ -1,11 +1,30 @@
 // Problem #1 // 
-function getYearlySubscribers(array){
-    console.log(users);
-    return array.filter(user => {
-        return user.subscription.type === 'Yearly';
-    });
+function getYearlySubscribers(){
+   
 }
 
-console.log(getYearlySubscribers(users));
-
 // Problem #2 //
+function getTheaterGoers(){
+    
+}
+
+// Problem #3 // 
+function mapUsers(){
+    
+}
+
+// Problem #4 //
+function getObjects(){
+    
+}
+
+// Problem #5 //
+function getInfoByCity(){
+    
+}
+
+// Problem #6 //
+function getYearlyCost(){
+    
+}
+
