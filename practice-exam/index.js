@@ -41,7 +41,8 @@ function getTheaterGoers(array){
  */
 
 function mapUsers(array){
-    return array.map(user => `${user.name} has a ${user.subscription.type} that costs ${user.subscription.cost}`)
+    return array.map(user => {
+        return `${user.name} has a ${user.subscription.type.toLowerCase()} that costs ${user.subscription.cost}`})
 
 }
 
@@ -99,9 +100,9 @@ function getInfoByCity(array, city, output = []){
  * type marked "Montly", you will need to calculate what their monthly cost 
  * will add up over 12 months.
  */
-function getYearlyCost(array){
+function getYearlyCost(array, output = []){
     return array.reduce((acc, current) => {
-
+acc += current
     }, 0)
 }
 
