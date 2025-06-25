@@ -71,7 +71,20 @@ function getObjects (array) {
  * the the name of a user followed by their email.
  */
 
+function getInfoByCity (array, city) {
+    let output = [];
+//base case
+if(array.length === 0){
+    return output;
+}
+// recursion
+if(array.length){
+output.push(getInfoByCity(array, city))
+}
+//return recursed array and output
+return getInfoByCity(array.slice(1), output)
 
+}
 
 // Problem #6 //
 
@@ -87,4 +100,7 @@ function getObjects (array) {
  * will add up over 12 months.
  */
 
+function getYearlyCost (array) {
+    return array.reduce(user => )
+}
 
