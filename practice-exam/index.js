@@ -24,6 +24,9 @@ function getYearlySubscribers (array) {
  * O: array of user objects if watched array includes a theater film
 */
 
+function getTheaterGoers (array) {
+    return array.filter(user => user.watched.platform === 'Theater')
+}
 
 // Problem #3 // 
 /**
@@ -38,7 +41,9 @@ I:
 O: arr of template literals
 
  */
-
+function mapUsers (array) {
+    return array.map(user => `${user.name} has a ${user.subscription.type.toLowerCase()} subscription that costs ${user.subscription.cost}`)
+}
 
 // Problem #4 //
 /**
@@ -48,6 +53,14 @@ O: arr of template literals
  * looks like the example below:
  */
 
+function getObjects (array) {
+    return array.map(user => ({
+        user: `${user.name}`,
+        location: `${user.location.city}, ${user.location.state}`,
+        watchedFilms: user.watched.length,
+        filmsInQueue: user.queue.length
+    }))
+}
 
 // Problem #5 //
 /**
