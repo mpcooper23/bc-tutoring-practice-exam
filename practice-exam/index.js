@@ -101,6 +101,11 @@ return getInfoByCity(array.slice(1), output)
  */
 
 function getYearlyCost (array) {
-    return array.reduce(user => )
+    return array.reduce((acc, current) => {
+    if(current.subscription === 'Yearly'){
+        acc[current.subscription] = current.subscription.total
+    }else {
+        acc[current.subscription] = current.subsciption.total * 12;
+    }}, [])
 }
 
